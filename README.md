@@ -21,3 +21,19 @@ Otherwise, it checks if the victim is already infected by searching the %TMP% di
 Change the IP address of the server (2nd parameter to the _Pigeon_) function as well as the URL for the main keylogger file (1st parameter to the _Pigeon_ function). The pigeon function is called in _main_:
 
 ![](/imgs/img6.png)
+
+## Compiling
+
+Cross-compile from Linux to Windows using mingw
+
+64-bit (for the dropper):
+`x86_64-w64-mingw32-gcc input.c -o output.exe -lurlmon -lwininet`
+
+32-bit (for the dropper):
+`i686-w64-mingw32-gcc input.c -o output.exe -lurlmon -lwininet`
+
+64-bit (for keylogger):
+`x86_64-w64-mingw32-gcc input.c -o output.exe`
+
+32-bit (for keylogger):
+`i686-w64-mingw32-gcc input.c -o output.exe`
