@@ -37,3 +37,7 @@ Cross-compile from Linux to Windows using mingw
 
 32-bit (for keylogger):
 `i686-w64-mingw32-gcc input.c -o output.exe`
+
+## TODO:
+1. Add a feature that constantly checks for processes that involve system imaging (such as FTK) & if it finds it, kill all running processes related to the malware & remove itself.
+2. Add a feature to disable keylogger once banking windows are closed out of.
