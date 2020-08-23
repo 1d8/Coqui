@@ -1,7 +1,5 @@
 # Coqui
 
-![](https://github.com/1d8/Coqui/blob/master/imgs-2/img4.png)
-
 ## DISCLAIMER: This project was made for research purposes. Anything you do with this code is on you and is not my responsibility.
 
 This malware is designed to activate when a user visits a banking website, the malware will check the window title against a set of hardcoded values to see if they are on certain sites. This set of hardcoded values can be expanded by simply adding them into the _banktitles_ variable:
