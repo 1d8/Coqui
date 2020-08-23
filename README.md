@@ -38,6 +38,38 @@ Cross-compile from Linux to Windows using mingw
 32-bit (for keylogger):
 `i686-w64-mingw32-gcc input.c -o output.exe`
 
+# Showcasing ProcKill
+
+Once the window monitor starts (ProcKill), it attempts to kill off the keylogger (using `system(taskkill /F /T /IM keylogger.exe))` if it doesn't detect the main window (the window the user is currently working in) being related to anything banking related. 
+##### NOTE: It compares a hardcoded list of banking related titles to the current working window, this hardcoded list can be expanded by simply adding in window titles:
+
+![](/imgs-2/img4.png)
+
+![](/imgs-2/img1.png)
+
+The current working window above is the command prompt, so it attempts to kill off the keylogger (in this case, named svart.exe).
+
+![](/imgs-2/img2.png)
+
+Now, the current window above is the Wells Fargo banking site, so the keylogger is started & ProcKill checks to be sure that it is running before starting it again. If it's already running, it prints out "[!] svart is already running!". 
+
+![](/imgs-2/img3.png)
+
+If the user changes their current working window & the keylogger is running, we can see the "SUCCESS" message, indicating that the keylogger was killed off due to the user changing windows.
+
+![](/imgs-2/img5.png)
+
+And if a window such as Process Hacker is detected, the keylogger is opened & overwritten, before:
+
+![](/imgs-2/img7.png)
+
+After:
+
+![](/imgs-2/img6.png)
+
+As far as the keylogger goes, it's fairly basic, the way it exfiltrates the logged data is by sending a GET request to a specified IP address. That IP address should have an Apache server running & logging GET requests. The file _dropper.c_ is responsible for data exfiltration & schedules itself to run every 12 days to exfiltrate the data.
+
+
 ## TODO:
 1. Add a feature that constantly checks for processes that involve system imaging (such as FTK) & if it finds it, kill all running processes related to the malware & remove itself.
 2. Add a feature to disable keylogger once banking windows are closed out of (added killlogger which does this).
